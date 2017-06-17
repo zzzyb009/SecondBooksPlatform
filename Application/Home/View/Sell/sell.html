@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>出售列表</title>
+  <link rel="shortcut icon" href="gdin.ico" />
+  <link rel="stylesheet" href="/Application/Public/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/Application/Public/css/base.css" />
+  <link rel="stylesheet" href="/Application/Public/css/sell.css" />
+</head>
+
+<body>
+  <!-- 头部开始 -->
+  <header id="gdin-header">
+    <div class="container">
+      <div class="pull-left">
+        <p class="welcome"><i class="icon-book"></i>您好，欢迎来到广师二手书交易平台!</p>
+      </div>
+      <div class="pull-right">
+        <if condition="!empty($_SESSION['username'])">
+        <a>{$Think.session.username}同学,你好！</a>
+        <else />
+        <a href="" class="login" type="button" data-toggle="modal" data-target="#login_form">请登录</a>
+        </if>
+        <a href="###" class="myLogin">我的出售</a>
+        <a href="###" class="myLogin">我的求购</a>
+      </div>
+    </div>
+  </header>
+  <!-- 头部结束 -->
+  <!-- 通栏开始 -->
+  <section id="gdin-banner">
+    <div class="container">
+      <!-- 左logo -->
+      <div class="logo pull-left">
+        <a href="#">
+          <img class="logo1" src="/Application/Public/images/logo.jpg" alt="广师" />
+        </a>
+      </div>
+      <!-- 搜索框 -->
+      <div class="search pull-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="书名、作者、出版社、ISBN">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button">搜索</button>
+            </span>
+        </div>
+        <div class="search-hot">
+          <strong>热门搜索：</strong>
+          <a href="">高等数学</a>
+          <a href="">大学物理</a>
+          <a href="">心理学</a>
+        </div>
+      </div>
+      <!-- 右logo -->
+      <div class="logo2 pull-left">
+        <img src="/Application/Public/images/logo2.png" alt="校训" />
+      </div>
+    </div>
+  </section>
+  <!-- 通栏结束 -->
+  <!-- 导航开始 -->
+  <nav class="navbar navbar-liubin navbar-static-top" id="gdin-nav">
+    <div class="container">
+      <div class="menu-box">
+        <div class="menu" id="nav_menu">
+          <a href="">全部图书分类 <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{:U('Home/Index/index')}">首页</a></li>
+          <li><a href="{:U('Home/Classify/classify')}">分类</a></li>
+          <li><a href="{:U('Home/Buy/buy')}">求购</a></li>
+          <li class="active"><a href="{:U('Home/Sell/sell')}">出售</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 导航结束 -->
+  <!-- 侧边栏开始 -->
+  <section id="gdin-wrapper">
+    <div class="container">
+      <!-- 分类父盒子 -->
+      <div class="menu-list">
+        <ul id="wrapper_first_ul">
+          <li>
+            <foreach name="menuA1" item="menuA1">
+              <h2>{$menuA1.classify}<span>></span></h2>
+              <div class="menu-all">
+                <foreach name="menuA2" item="menuA2">
+                <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuA2['classify'],))}">{$menuA2.classify}</a>
+                </foreach>
+              </div>
+              <div class="secmenu">
+                <ul>
+                  <li>
+                    <div class="list-box">
+                      <foreach name="menuA3" item="menuA3">
+                        <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuA3['classify']))}">{$menuA3.classify}</a>
+                      </foreach>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </foreach>
+          </li>
+          <li>
+            <foreach name="menuB1" item="menuB1">
+              <h2>{$menuB1.classify}<span>></span></h2>
+              <div class="menu-all">
+                <foreach name="menuB2" item="menuB2">
+                <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuB2['classify']))}">{$menuB2.classify}</a>
+                </foreach>
+              </div>
+              <div class="secmenu">
+                <ul>
+                  <li>
+                    <div class="list-box">
+                      <foreach name="menuB3" item="menuB3">
+                        <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuB3['classify']))}">{$menuB3.classify}</a>
+                      </foreach>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </foreach>
+          </li>
+          <li>
+            <foreach name="menuC1" item="menuC1">
+              <h2>{$menuC1.classify}<span>></span></h2>
+              <div class="menu-all">
+                <foreach name="menuC2" item="menuC2">
+                <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuC2['classify']))}">{$menuC2.classify}</a>
+                </foreach>
+              </div>
+              <div class="secmenu">
+                <ul>
+                  <li>
+                    <div class="list-box">
+                      <foreach name="menuC3" item="menuC3">
+                        <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuC3['classify']))}">{$menuC3.classify}</a>
+                      </foreach>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </foreach>
+          </li>
+          <li>
+            <foreach name="menuD1" item="menuD1">
+              <h2>{$menuD1.classify}<span>></span></h2>
+              <div class="menu-all">
+                <foreach name="menuD2" item="menuD2">
+                <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuD2['classify']))}">{$menuD2.classify}</a>
+                </foreach>
+              </div>
+              <div class="secmenu">
+                <ul>
+                  <li>
+                    <div class="list-box">
+                      <foreach name="menuD3" item="menuD3">
+                        <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuD3['classify']))}">{$menuD3.classify}</a>
+                      </foreach>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </foreach>
+          </li>
+          <li>
+            <foreach name="menuE1" item="menuE1">
+              <h2>{$menuE1.classify}<span>></span></h2>
+              <div class="menu-all">
+                <foreach name="menuE2" item="menuE2">
+                <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuE2['classify']))}">{$menuE2.classify}</a>
+                </foreach>
+              </div>
+              <div class="secmenu">
+                <ul>
+                  <li>
+                    <div class="list-box">
+                      <foreach name="menuE3" item="menuE3">
+                        <a href="{:U('Home/Classify/classifyList',array('tittle'=>$menuE3['classify']))}">{$menuE3.classify}</a>
+                      </foreach>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </foreach>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- 侧边栏结束 -->
+  <!-- 出售主模块开始 -->
+  <section id="gdin-sell">
+    <div class="container">
+      <!-- 出售模块头部 -->
+      <div class="sell-title clearfix">
+        <div class="title-left pull-left">
+          <p>排序：</p>
+          <ul>
+            <li>
+              <a href="">上架时间 <span class="glyphicon glyphicon-menu-right glyphicon glyphicon-menu-down"></span></a></li>
+            <li><a href="">售价 <span class="glyphicon glyphicon-menu-right glyphicon glyphicon-menu-down"></span></a></li>
+          </ul>
+        </div>
+        <div class="title-right pull-right">
+        {$show}
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="active"><a href="###">1</a></li>
+            <li><a href="###">2</a></li>
+            <li><a href="###">3</a></li>
+            <li><a href="###">4</a></li>
+            <li><a href="###">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 出售模块主体  当前页加载的书籍数量必须为偶数-->
+      <div class="sellbody-box">
+        <!--  <div class="sell-body clearfix">
+          <div class="book-pic pull-left">
+            <a href="###"> <img src="images/sell-book-01.jpg" alt="" /></a>
+          </div>
+          <div class="book-info pull-left">
+            <div class="info-title"><a href="###">向日葵不开的夏天</a></div>
+            <div class="info-detail">
+              <p>作者: 于彤彤</p>
+              <p>新旧: 九成新</p>
+              <p class="new-price">售价: <span>&yen;20.00</span></p>
+              <p class="original-price">原价: <span>&yen;28.00</span></p>
+              <p>折扣: 7.1折</p>
+              <p>数量: 1</p>
+            </div>
+            <div class="info-bottom"><a href="#" type="button" class="btn btn-default">查看联系方式</a></div>
+          </div>
+        </div> -->
+        <foreach name="books" item="v">
+        <div class="sell-body clearfix">
+          <div class="book-pic pull-left">
+            <a href="{:U('Home/BookDetails/BookDetails',array('isbn'=>$v['isbn'],'type'=>'sell'))}"> <img src="/Application/Public/images/{$v.pic}" alt="" /></a>
+          </div>
+          <div class="book-info pull-left">
+            <div class="info-title"><a href="{:U('Home/BookDetails/BookDetails',array('isbn'=>$v['isbn'],'type'=>'sell'))}">{$v.bname}</a></div>
+            <div class="info-detail">
+              <p>作者: {$v.writer}</p>
+              <p>新旧: {$v.new}</p>
+              <p class="new-price">售价: <span>&yen;{$v.sprice}</span></p>
+              <p class="original-price">原价: <span>&yen;{$v.oprice}</span></p>
+              <p>折扣: {$v.count}</p>
+              <p>数量: {$v.num}</p>
+            </div>
+            <div class="info-bottom"><a href="#" type="button" class="btn btn-default">查看联系方式</a></div>
+          </div>
+        </div>
+        </foreach>
+      </div>
+      <!-- 出售主模块底部页面导航 -->
+      <div class="sell-footer-pagination text-center clearfix">
+      {$show}
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="active"><a href="###">1</a></li>
+          <li><a href="###">2</a></li>
+          <li><a href="###">3</a></li>
+          <li><a href="###">4</a></li>
+          <li><a href="###">5</a></li>
+          <li><a href="###">...</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- 出售主模块结束 -->
+  <!-- 登录模态框开始 -->
+  <div class="modal fade" id="login_form" tabindex="-1" role="dialog" aria-labelledby="login_title">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="login_title">欢迎登录</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" action="{:U('Home/Login/login')}" method="post">
+            <div class="form-group">
+              <label for="userName" class="col-sm-2 control-label">学号:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="userName" placeholder="请输入您的学号" name="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="passWord" class="col-sm-2 control-label">密码:</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="passWord" placeholder="请输入密码..." name="password">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox">记住我
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">登录</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 登录模态框结束 -->
+  <!-- 页脚开始 -->
+  <footer id="gdin-footer">
+    <div class="container">
+      <div class="footer">
+        <table>
+          <tr>
+            <td><a href="###">关于我们</a></td>
+            <td><a href="###">用户协议</a></td>
+            <td><a href="###">建议/反馈</a></td>
+            <td><a href="###">一起合作</a></td>
+            <td><a href="###">隐私保护</a></td>
+          </tr>
+        </table>
+        <p>Copyright &copy; 2016-2017 www.seaweedsweb.com All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <!-- 页脚结束 -->
+  <script src="/Application/Public/lib/jquery/jquery-3.1.1.min.js"></script>
+  <script src="/Application/Public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/Application/Public/js/classify.js"></script>
+  <script type="text/javascript">
+    let myLogin = document.getElementsByClassName('myLogin');
+    // console.log(myLogin);
+    for(let i=0,a;a=myLogin[i++];){
+      a.onclick=function chenkLogin(){
+        var xhr=new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+          if (xhr.readyState == 4) {
+            // alert(xhr.responseText);
+            if (xhr.responseText=="Y") {
+              location.href="{:U('Personal/personalZone')}"
+            }else{
+              alert("请先登录！");
+            }
+          }
+        } 
+        xhr.open("get","{:U('Login/checkLogin')}");
+        xhr.send(null);
+      }
+    }
+  </script>
+</body>
+
+</html>

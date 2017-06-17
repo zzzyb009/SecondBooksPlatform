@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>分类列表</title>
+  <link rel="shortcut icon" href="/Application/Public/gdin.ico" />
+  <link rel="stylesheet" href="/Application/Public/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/Application/Public/css/base.css" />
+  <link rel="stylesheet" href="/Application/Public/css/classifyList.css" />
+</head>
+
+<body>
+  <!-- 头部开始 -->
+  <header id="gdin-header">
+    <div class="container">
+      <div class="pull-left">
+        <p class="welcome"><i class="icon-book"></i>您好，欢迎来到广师二手书交易平台!</p>
+      </div>
+    </div>
+  </header>
+  <!-- 头部结束 -->
+  <!-- 通栏开始 -->
+  <section id="gdin-banner">
+    <div class="container">
+      <!-- 左logo -->
+      <div class="logo pull-left">
+        <a href="#">
+          <img class="logo1" src="/Application/Public/images/logo.jpg" alt="广师" />
+        </a>
+      </div>
+      <!-- 搜索框 -->
+      <div class="search pull-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="书名、作者、出版社、ISBN">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button">搜索</button>
+            </span>
+        </div>
+        <div class="search-hot">
+          <strong>热门搜索：</strong>
+          <a href="">高等数学</a>
+          <a href="">大学物理</a>
+          <a href="">心理学</a>
+        </div>
+      </div>
+      <!-- 右logo -->
+      <div class="logo2 pull-left">
+        <img src="/Application/Public/images/logo2.png" alt="校训" />
+      </div>
+    </div>
+  </section>
+  <!-- 通栏结束 -->
+  <!-- 主体 -->
+  <section id="gdin-classifyList">
+    <div class="container">
+      <div class="cl-title">
+        <i class="icon-scroll"></i>
+        <p>{$tittle}</p>
+      </div>
+      <ul>
+      <foreach name="book" item="v">
+        <li>
+          <div class="cl-body clearfix">
+            <div class="book-pic pull-left">
+              <a href="{:U('Home/BookDetails/BookDetails',array('isbn'=>$v['isbn'],'type'=>'sell'))}"> <img src="/Application/Public/images/{$v.pic}" alt="" /></a>
+            </div>
+            <div class="book-info pull-left">
+              <div class="info-title"><a href="{:U('Home/BookDetails/BookDetails',array('isbn'=>$v['isbn'],'type'=>'sell'))}">{$v.bname}</a></div>
+              <div class="info-detail">
+                <p>作者: {$v.writer}</p>
+                <p>新旧: {$v.new}</p>
+                <p class="new-price">售价: <span>&yen;{$v.sprice}</span></p>
+                <p class="original-price">原价: <span>&yen;{$v.oprice}</span></p>
+                <p>折扣: {$v.count}</p>
+                <p>数量: {$v.num}</p>
+              </div>
+            </div>
+          </div>
+        </li>
+        </foreach>
+      </ul>
+    </div>
+  </section>
+  <!-- 主体结束 -->
+  <!-- 页脚开始 -->
+  <footer id="gdin-footer">
+    <div class="container">
+      <div class="footer">
+        <table>
+          <tr>
+            <td><a href="###">关于我们</a></td>
+            <td><a href="###">用户协议</a></td>
+            <td><a href="###">建议/反馈</a></td>
+            <td><a href="###">一起合作</a></td>
+            <td><a href="###">隐私保护</a></td>
+          </tr>
+        </table>
+        <p>Copyright &copy; 2016-2017 www.seaweedsweb.com All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <!-- 页脚结束 -->
+  <script src="/Application/Public/lib/jquery/jquery-3.1.1.min.js"></script>
+  <script src="/Application/Public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script>
+  //判断页面高度是否足够撑起最下尾部盒子
+  console.log($("#gdin-classifyList").height())
+  $(function() {
+    if ($("#gdin-classifyList").height() < 400) {
+      $("#gdin-footer").addClass('fixBottom');
+    } else {
+      $("#gdin-footer").removeClass('fixBottom');
+    }
+  })
+  </script>
+</body>
+
+</html>

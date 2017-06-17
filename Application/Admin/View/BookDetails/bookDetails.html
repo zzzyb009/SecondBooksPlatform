@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <link rel="shortcut icon" href="/Application/Public/gdin.ico" />
+  <link rel="stylesheet" href="/Application/Public/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/Application/Public/css/base.css" />
+  <link rel="stylesheet" href="/Application/Public/css/sell.css" />
+  <link rel="stylesheet" href="/Application/Public/css/bookDetails.css" />
+</head>
+
+<body>
+  <!-- 头部开始 -->
+  <header id="gdin-header">
+    <div class="container">
+      <div class="pull-left">
+        <p class="welcome"><i class="icon-book"></i>您好，欢迎来到广师二手书交易平台!</p>
+      </div>
+      <div class="pull-right">
+        <a href="">
+        <if condition="!empty($_SESSION['admin'])">
+        欢迎您，{$Think.session.admin}
+        <else />
+        error
+        </if></a>
+      </div>
+    </div>
+  </header>
+  <!-- 头部结束 -->
+  <!-- 通栏开始 -->
+  <section id="gdin-banner">
+    <div class="container">
+      <!-- 左logo -->
+      <div class="logo pull-left">
+        <a href="#">
+          <img class="logo1" src="/Application/Public/images/logo.jpg" alt="广师" />
+        </a>
+      </div>
+      <!-- 搜索框 -->
+      <div class="search pull-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="书名、作者、出版社、ISBN">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button">搜索</button>
+            </span>
+        </div>
+        <div class="search-hot">
+          <strong>热门搜索：</strong>
+          <a href="">高等数学</a>
+          <a href="">大学物理</a>
+          <a href="">心理学</a>
+        </div>
+      </div>
+      <!-- 右logo -->
+      <div class="logo2 pull-left">
+        <img src="/Application/Public/images/logo2.png" alt="校训" />
+      </div>
+    </div>
+  </section>
+  <!-- 通栏结束 -->
+  <!-- 导航开始 -->
+  <nav class="navbar navbar-liubin navbar-static-top" data-spy="affix" data-offset-top="60" data-offset-bottom="200" id="gdin-nav">
+    <div class="container">
+      <div class="menu-box">
+        <div class="menu" id="nav_menu">
+          <a href="">全部图书分类 <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">首页</a></li>
+          <li><a href="#">分类</a></li>
+          <li><a href="#">求购</a></li>
+          <li><a href="#">出售</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 导航结束 -->
+  <!-- 书籍详情 -->
+  <section id="bookDetails">
+    <foreach name="book" item='v'>
+      <div class="container">
+        <div class="book-image">
+          <img src="/Application/Public/images/{$v.pic}" alt="" />
+        </div>
+        <div class="book-details">
+          <ul class="details-list">
+            <h3 class="bookName">{$v.bname}</h3>
+            <li>作者：{$v.writer}</li>
+            <li>出版社：{$v.press}</li>
+            <li>原价：<span class="originalPrice">&yen;{$v.oprice}</span></li>
+            <li>新旧程度：{$v.new}</li>
+            <li>数量：{$v.num}</li>
+            <h4 class="newPrice">现价：<span>&yen;{$v.sprice}</span></h4>
+          </ul>
+          <button id="contactBtn" class="btn btn-default">删除</button>
+        </div>
+      </div>
+    </foreach>
+  </section>
+  <!-- 书籍详情结束 -->
+  <!-- 页脚开始 -->
+  <footer id="gdin-footer">
+    <div class="container">
+      <div class="footer">
+        <table>
+          <tr>
+            <td><a href="javascript;">关于我们</a></td>
+            <td><a href="javascript;">用户协议</a></td>
+            <td><a href="javascript;">建议/反馈</a></td>
+            <td><a href="javascript;">一起合作</a></td>
+            <td><a href="javascript;">隐私保护</a></td>
+          </tr>
+        </table>
+        <p>Copyright &copy; 2016-2017 www.seaweedsweb.com All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <!-- 页脚结束 -->
+</body>
+<script src='/Application/Public/lib/jquery/jquery-3.1.1.min.js'></script>
+<script src="/Application/Public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src='/Application/Public/js/classify.js'></script>
+<script type="text/javascript">
+  let url = "{:U('BookDetails/deleteBook')}";
+  let url1 = "{:U('BuyBook/buyBook')}";
+  let url2 = "{:U('SellBook/sellBook')}";
+  console.log(url);
+  let num = "{$_GET['isbn']}";
+  let type = "{$_GET['type']}"
+  console.log(num);
+  console.log(type);
+</script>
+<script type="text/javascript" src="/Application/Admin/Public/js/admin_bookDetails.js"></script>
+</html>

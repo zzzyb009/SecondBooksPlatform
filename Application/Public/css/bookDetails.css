@@ -1,0 +1,67 @@
+/*
+* @Author: bin
+* @Date:   2017-04-03 21:23:08
+* @Last Modified by:   bin
+* @Last Modified time: 2017-04-04 13:33:41
+*/
+#bookDetails {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background-color: #fff;
+}
+#bookDetails .container {}
+#bookDetails .container .book-image {
+  width: 348px;
+  height: 348px;
+  line-height: 348px;
+  margin-left: 80px;
+  border: 1px solid #e5e5e5;
+  float: left;
+  text-align: center;
+}
+#bookDetails .container .book-image img {
+  width: 200px;
+  height: 250px;
+  transition: all .3s ease;
+  -webkit-transition: all .8s ease;
+  -moz-transition: all .8s ease;
+  -o-transition: all .8s ease;
+  -ms-transition: all .8s ease;
+}
+#bookDetails .container .book-image img:hover {
+  transform: scale(1.2);
+  transition: all .8s ease;
+  -webkit-transition: all .8s ease;
+  -moz-transition: all .8s ease;
+  -o-transition: all .8s ease;
+  -ms-transition: all .8s ease;
+}
+#bookDetails .container .book-details {
+  float: left;
+  margin-left: 40px;
+  margin-top: 30px;
+  color: #666;
+}
+#bookDetails .container .book-details h3 {
+  color: #000;
+}
+#bookDetails .container .book-details .originalPrice {
+  text-decoration: line-through;
+  color: #999;
+}
+#bookDetails .container .book-details .newPrice {
+  font-size: 20px;
+  color: #000;
+}
+#bookDetails .container .book-details .newPrice span {
+  color: red;
+}
+#bookDetails .container .book-details button {
+  margin-top: 40px;
+  padding: 10px;
+  background-color: #ec971f;
+  color: #fff;
+}
+#bookDetails .container .book-details button:hover {
+  background-color: #ff8711;
+}

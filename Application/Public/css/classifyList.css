@@ -1,0 +1,96 @@
+body, html {
+  height: 100%;
+  /* font-family: "宋体"; */
+  /* background-color: #fff; */
+  background-image: none;
+}
+
+/* 固定在底部 */
+
+.fixBottom {
+  position: fixed;
+  bottom: 0;
+}
+#gdin-classifyList .container .cl-title {
+  padding-top: 10px;
+  background-color: #fff;
+  border: 2px dashed rgb(162, 191, 20);
+  text-align: center;
+  font-size: 26px;
+}
+#gdin-classifyList .container .cl-title .icon-scroll {
+  width: 12px;
+  height: 12px;
+  padding: 5px 10px 0 6px;
+  float: left;
+}
+#gdin-classifyList .container .cl-title .icon-scroll::before {
+  content: "\e901";
+  font-size: 18px;
+}
+#gdin-classifyList .container .cl-title:hover {
+  transition: all .4s ease-in-out;
+  color: #e92322;
+  border-color: #e92322;
+}
+#gdin-classifyList .container .cl-title p {
+  padding-left: 30px;
+}
+#gdin-classifyList .container .cl-body {
+  background-color: #fff;
+  padding: 10px;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+  border-bottom: 1px dotted #777;
+  float: left;
+  width: 100%;
+}
+#gdin-classifyList .container .cl-body .pic {
+  margin-right: 10px;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #777;
+  text-align: center;
+  margin-bottom: 2px;
+}
+#gdin-classifyList .container .cl-body .book-pic img {
+  height: 160px;
+  width: 120px;
+}
+#gdin-classifyList .container .cl-body .book-info {
+  overflow: hidden;
+  margin-left: 10px;
+  width: 420px;
+}
+#gdin-classifyList .container .cl-body .book-info .info-title {
+  /* border-bottom: 1px dashed #bbb; */
+  font-size: 14px;
+  padding-left: 8px;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+#gdin-classifyList .container .cl-body .book-info .info-detail {
+  /* border-bottom: 1px dashed #bbb; */
+  padding: 10px;
+}
+#gdin-classifyList .container .cl-body .book-info .info-detail p {
+  margin: 0;
+}
+#gdin-classifyList .container .cl-body .book-info .info-detail .new-price span {
+  color: #e92322;
+}
+#gdin-classifyList .container .cl-body .book-info .info-detail .original-price span {
+  text-decoration: line-through;
+  color: #888;
+}
+#gdin-classifyList .container .cl-body .book-info .info-bottom .btn {
+  /* float: left; */
+  background: #ec971f;
+  color: #fff;
+  margin-top: 10px;
+}
+#gdin-classifyList .container .cl-body .book-info .info-bottom .btn:hover {
+  background: #ff8711;
+}

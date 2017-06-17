@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh-CN"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh-CN"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh-CN"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+  <title>管理员中心首页</title>
+  <link href="/Application/Public/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/Application/Public/lib/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/Application/Public/css/base.css" />
+  <link href="/Application/Public/css/admin.css" rel="stylesheet" />
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <!-- 头部开始 -->
+  <header id="gdin-header">
+    <div class="container">
+      <div class="pull-left">
+        <p class="welcome"><i class="icon-book"></i>您好，欢迎来到广师二手书交易平台!</p>
+      </div>
+      <div class="pull-right">
+        <p class="pull-left" style="margin-right:4px">
+        <if condition="!empty($_SESSION['admin'])">
+        欢迎您，{$Think.session.admin}
+        <else />
+        error
+        </if>
+        </p>
+      </div>
+    </div>
+  </header>
+  <!-- 头部结束 -->
+  <section>
+    <div class="container">
+      <div class="row noti-div">
+        <div class="col-lg-3 col-md-3 col-sm-3  text-center">
+          <a href="{:U('UserList/userlist')}">
+            <div class="alert alert-danger">
+              <i class="fa fa-user fa-4x"></i>
+              <span class="label label-info">新用户</span>
+              <span class="label label-danger">5</span>
+              <p>
+                本周新登录用户
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3  text-center">
+          <a href="{:U('SellBook/sellBook')}">
+            <div class="alert alert-success">
+              <i class="fa fa-folder-open-o fa-4x"></i>
+              <span class="label label-warning">新增出售</span>
+              <span class="label label-success">45</span>
+              <p>
+                本周新增出售书籍列表
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3  text-center">
+          <a href="{:U('BuyBook/buyBook')}">
+            <div class="alert alert-warning">
+              <i class="fa fa-briefcase fa-4x"></i>
+              <span class="label label-success">新增求购</span>
+              <span class="label label-warning">4</span>
+              <p>
+                本周新增求购书籍列表
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 text-center">
+          <a href="{:U('UserList/userlist')}">
+            <div class="alert alert-info">
+              <i class="fa fa-recycle fa-4x"></i>
+              <span class="label label-danger">所有学生</span>
+              <span class="label label-info">{$count}</span>
+              <p>
+                学生管理
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9 alert alert-info">
+          <h3 class=" text-center">发布新通知</h3>
+          <div class="hr-div">
+            <hr />
+          </div>
+          <form action="{:U('Dashboard/SendInfo')}" method="post" accept-charset="utf-8" id="SendInfoForm">
+            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+              <label>请输入通知标题</label>
+              <input type="text" class="form-control" required="required" placeholder="通知标题 " name="tittle" />
+            </div>
+            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+              <label>请输入通知内容</label>
+              <textarea class="form-control" rows="14" placeholder="通知内容 " name="content"></textarea>
+            </div>
+            <div class="form-group col-lg-12 col-md-12 col-sm-12">
+              <button type="submit" class="btn btn-primary">发送通知</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <a href="{:U('Login/logout')}" class=" label label-danger"><strong>登出</strong> </a>
+          <div class="list-group">
+            <p class="list-group-item list-group-item-danger">快速导航栏</p>
+            <a href="{:U('Dashboard/dashboard')}" class="list-group-item active">管理员首页</a>
+            <a href="{:U('SellBook/sellBook')}" class="list-group-item">新发布书籍</a>
+            <a href="{:U('BuyBook/buyBook')}" class="list-group-item">新求购书籍</a>
+            <a href="{:U('UserList/userList')}" class="list-group-item">所有用户</a>
+            <a href="{:U('ChangePassword/changePassword')}" class="list-group-item">修改密码</a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3">
+          <div class="panel panel-info">
+            <div class="panel-heading">通知中心</div>
+            <div class="panel-body">
+              <ul>
+              <foreach name="info" item="v">
+                <li><a href="#">【{$v.tittle}】{$v.content}</a></li>
+              </foreach>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 页脚开始 -->
+  <footer id="gdin-footer">
+    <div class="container">
+      <div class="footer">
+        <table>
+          <tr>
+            <td><a href="javascript;">关于我们</a></td>
+            <td><a href="javascript;">用户协议</a></td>
+            <td><a href="javascript;">建议/反馈</a></td>
+            <td><a href="javascript;">一起合作</a></td>
+            <td><a href="javascript;">隐私保护</a></td>
+          </tr>
+        </table>
+        <p>Copyright &copy; 2016-2017 www.seaweedsweb.com All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <!-- 页脚结束 -->
+  <!--  Jquery Core Script -->
+  <script type="text/javascript">
+    let url = "{:U('Dashboard/sendInfo')}"
+  </script>
+  <script src="/Application/Public/lib/jquery/jquery-3.1.1.min.js"></script>
+  <!--  Core Bootstrap Script -->
+  <script src="/Application/Public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/Application/Admin/Public/js/dashboard.js"></script>
+</body>
+
+</html>

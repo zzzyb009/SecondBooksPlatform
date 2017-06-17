@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>个人中心</title>
+  <link rel="shortcut icon" href="gdin.ico" />
+  <link rel="stylesheet" href="/Application/Public/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/Application/Public/css/base.css" />
+  <link rel="stylesheet" href="/Application/Public/css/personalZone.css" />
+</head>
+
+<body>
+  <!-- 头部开始 -->
+  <header id="gdin-header">
+    <div class="container">
+      <div class="pull-left">
+        <p class="welcome"><i class="icon-book"></i>您好，欢迎来到广师二手书交易平台!</p>
+      </div>
+      <div class="pull-right">
+        <a>{$Think.session.username}同学,你好！</a>
+      </div>
+    </div>
+  </header>
+  <!-- 头部结束 -->
+  <!-- 通栏开始 -->
+  <section id="gdin-banner">
+    <div class="container">
+      <!-- 左logo -->
+      <div class="logo pull-left">
+        <a href="#">
+          <img class="logo1" src="/Application/Public/images/logo.jpg" alt="广师" />
+        </a>
+      </div>
+      <!-- 搜索框 -->
+      <div class="search pull-left">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="书名、作者、出版社、ISBN">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button">搜索</button>
+            </span>
+        </div>
+        <div class="search-hot">
+          <strong>热门搜索：</strong>
+          <a href="">高等数学</a>
+          <a href="">大学物理</a>
+          <a href="">心理学</a>
+        </div>
+      </div>
+      <!-- 右logo -->
+      <div class="logo2 pull-left">
+        <img src="/Application/Public/images/logo2.png" alt="校训" />
+      </div>
+    </div>
+  </section>
+  <!-- 通栏结束 -->
+  <nav class="navbar navbar-liubin navbar-static-top" data-spy="affix" data-offset-top="60" data-offset-bottom="200" id="gdin-nav">
+    <div class="container">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{:U('Home/Index/index')}">首页</a></li>
+          <li><a href="{:U('Home/Classify/classify')}">分类</a></li>
+          <li><a href="{:U('Home/Buy/buy')}">求购</a></li>
+          <li><a href="{:U('Home/Sell/sell')}">出售</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- 侧边栏 -->
+  <section id="sidebar">
+    <ul>
+      <li class="active">我的出售</li>
+      <li>我的求购</li>
+      <li>我的收藏</li>
+      <li>修改密码</li>
+      <li>更改联系方式</li>
+      <li>出售书籍</li>
+      <li>求购书籍</li>
+    </ul>
+  </section>
+  <!-- 页面主体 -->
+  <section id="center">
+    <!-- 我的出售 -->
+    <section id="mySell">
+      <div class="mySellBox">
+        <ul>
+        <foreach name="mySell" item="v">
+            <li class="clearfix">
+            <div class="picBox">
+              <a href="{:U('Home/BookDetails/bookDetails',array('isbn'=>$v['isbn'],'type'=>'sell'))}"><img src="/Application/Public/images/{$v.pic}" alt=""></a>
+            </div>
+            <div class="bookDetails"><a href="{:U('Home/BookDetails/bookDetails',array('isbn'=>$v['isbn'],'type'=>'sell'))}"><h3>{$v.bname}</h3></a>
+              <p>作者：{$v.writer}</p>
+              <p>价格：{$v.sprice}</p>
+            </div>
+          </li>
+        </foreach>
+        </ul>
+      </div>
+    </section>
+    <!-- 我的出售结束 -->
+    <!-- 我的求购 -->
+    <section id="myBuy">
+      <div class="myBuyBox">
+        <ul>
+        <foreach name="myBuy" item="v">
+            <li class="clearfix">
+            <div class="picBox">
+              <a href="{:U('Home/BookDetails/bookDetails',array('isbn'=>$v['isbn'],'type'=>'buy'))}"><img src="/Application/Public/images/{$v.pic}" alt=""></a>
+            </div>
+            <div class="bookDetails"><a href="{:U('Home/BookDetails/bookDetails',array('isbn'=>$v['isbn'],'type'=>'buy'))}"><h3>{$v.bname}</h3></a>
+              <p>作者：{$v.writer}</p>
+              <p>价格：{$v.sprice}</p>
+            </div>
+          </li>
+        </foreach>
+        </ul>
+      </div>
+    </section>
+    <!-- 我的求购结束 -->
+    <!-- 我的收藏 -->
+    <section id="myCollection">
+      <div class="myCollectionBox">
+        <ul>
+        <foreach name="book" item="value">
+        <foreach name="value" item='v'>
+            <li class="clearfix">
+            <div class="picBox">
+              <a href="{:U('Home/BookDetails/bookDetails',array('isbn'=>$v['isbn']))}"><img src="/Application/Public/images/{$v.pic}" alt=""></a>
+            </div>
+            <div class="bookDetails"><a href="{:U('Home/BookDetails/bookDetails',array('isbn'=>$v['isbn']))}"><h3>{$v.bname}</h3></a>
+              <p>作者：{$v.writer}</p>
+              <p>价格：{$v.sprice}</p>
+            </div>
+          </li>
+        </foreach>
+        </foreach>
+        </ul>
+      </div>
+    </section>
+    <!-- 我的收藏结束 -->
+    <!-- 修改密码模块 -->
+    <section id="changePassword">
+    <form action="{:U('Personal/changePassword')}" method="post" accept-charset="utf-8" id="changePasswords">
+      <ul>
+        <li>
+          <label for="oldPassword">原密码:</label>
+          <input type="password" name="oldPassword" id="oldPassword" />
+          <span></span>
+        </li>
+        <li>
+          <label for="newPassword">新密码:</label>
+          <input type="password" name="newPassword" id="newPassword" />
+          <span></span>
+        </li>
+        <li>
+          <label for="newAgain">确认密码:</label>
+          <input type="password" name="newPassordAgain" id="newAgain" />
+          <span></span>
+        </li>
+        <li>
+          <input class="changePasswordSubmit" type="submit" value="确认修改" />
+        </li>
+      </ul>
+    </form>
+    </section>
+    <!-- 修改密码模块结束 -->
+    <!-- 修改联系方式 -->
+    <section id="changeContect">
+      <form action="{:U('Personal/changeContact')}" method="post" accept-charset="utf-8" id="ChangeContacts">
+        <ul>
+          <li>
+            <label for="newContect">QQ:</label>
+            <input type="text" name="qq" id="newContect" />
+          </li>
+          <li>
+            <label for="newContect">微信:</label>
+            <input type="text" name="wechat" id="newContect" />
+          </li>
+          <li>
+            <label for="newContect">长号:</label>
+            <input type="text" name="phone" id="newContect" />
+          </li>
+          <li>
+            <input class="changeContectSubmit" type="submit" value="确认更改" />
+          </li>
+        </ul>
+      </form>
+    </section>
+    <!-- 修改联系方式结束 -->
+    <!-- 出售书籍 -->
+    <section id="gdin-sell-form">
+      <div class="container">
+        <div class="form-title">
+          添加出售：
+        </div>
+        <div class="sell-form-body ">
+          <form action="{:U('Personal/sellBook')}" enctype="multipart/form-data" method="post" accept-charset="utf-8" id="SellBook">
+            <table class="sell-form-table">
+              <tbody>
+                <tr>
+                  <td>
+                    <!-- ISBN号 -->
+                    <label for="book_isbn">ISBN号 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_isbn" class="tbody-input" name="isbn" placeholder="请输入8位issn码或者13位isbn码" />
+                  </td>
+                  <td>
+                    <div id="book_isbn_tips"></div>
+                  </td>
+                </tr>
+                <tr class="form-tips">
+                  <td></td>
+                  <td>
+                    <a href="javascript;">什么是ISBN号？</a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 书名 -->
+                    <label for="book_name">书名 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_name" class="tbody-input" name="bname" placeholder="请输入书名" />
+                  </td>
+                  <td>
+                    <div id="book_name_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 作者 -->
+                    <label for="book_author">作者 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_author" class="tbody-input" name="writer" placeholder="请输入作者" />
+                  </td>
+                  <td>
+                    <div id="book_author_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 出版社 -->
+                    <label for="book_press">出版社 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_press" class="tbody-input" name="press" placeholder="请输入出版社" />
+                  </td>
+                  <td>
+                    <div id="book_press_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 封面图 -->
+                    <label for="book_pic">封面图片 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <!-- 上传图片 -->
+                    <a href="javascript:void(0);" class="load-pic ">上传图片<input type="file" id="book_pic" name="pic" class="tbody-input" /></a><span class="showFileName"></span>
+                    <div class="fileerrorTip" id="uploadPreview"></div>
+                  </td>
+                  <td>
+                    <div></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 原价 -->
+                    <label for="book_original_price">原价 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_original_price" class="tbody-input" name="oprice" placeholder="0~999之间" />
+                  </td>
+                  <td>
+                    <div id="book_original_price_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 售价 -->
+                    <label for="book_new_price">售价 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_new_price" class="tbody-input" name="sprice" placeholder="0~999之间" />
+                  </td>
+                  <td>
+                    <div id="book_new_price_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 数量 -->
+                    <label for="book_number">数量 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_number" class="tbody-input" name="num" value="1" />
+                  </td>
+                  <td>
+                    <div id="book_number_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 新旧程度 -->
+                    <label for="book_quality">新旧程度 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <select name="new" id="book_quality">
+                      <option value="11" selected="selected">-- 请选择 --</option>
+                      <option value="全新">全新</option>
+                      <option value="九成新">九成新</option>
+                      <option value="八成新">八成新</option>
+                      <option value="七成新">七成新</option>
+                      <option value="六成新及以下">六成新及以下</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div id="book_quality_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 书籍分类 -->
+                    <label for="book_type_id">书籍分类 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <select name="classify" id="book_type_id">
+                      <option value="11" selected="selected">-- 请选择 --</option>
+                      <option value="1000">文学艺术</option>
+                      <option value="2000">人文社科</option>
+                      <option value="3000">经济管理</option>
+                      <option value="4000">生活休闲</option>
+                      <option value="5000">外语学习</option>
+                      <option value="6000">自然科学</option>
+                      <option value="7000">考试教育</option>
+                      <option value="8000">计算机</option>
+                      <option value="9000">医学</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div id="book_type_id_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 发布人说 -->
+                    <label for="book_comment">发布人说</label>
+                  </td>
+                   <td>
+                    <textarea maxlength="255" class="textinput" name="message" id="book_comment"></textarea>
+                  </td>
+                  <td>
+                    <div id="book_comment_tip"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="submit-button-box">
+              <input id="submit_button" class="btn btn-warning" name="" type="submit" value=" 发  布 " />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- 出售书籍结束 -->
+    <!-- 求购书籍 -->
+    <section id="gdin-buy-form">
+      <div class="container">
+        <div class="form-title">
+          求购新书：
+        </div>
+        <div class="sell-form-body ">
+          <form action="{:U('Personal/buyBook')}" enctype="multipart/form-data" method="post" accept-charset="utf-8" >
+            <table class="sell-form-table">
+              <tbody>
+                <tr>
+                  <td>
+                    <!-- ISBN号 -->
+                    <label for="book_isbn">ISBN号 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_isbn" class="tbody-input" name="isbn" placeholder="请输入8位issn码或者13位isbn码" />
+                  </td>
+                  <td>
+                    <div id="book_isbn_tips"></div>
+                  </td>
+                </tr>
+                <tr class="form-tips">
+                  <td></td>
+                  <td>
+                    <a href="javascript;">什么是ISBN号？</a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 书名 -->
+                    <label for="book_name">书名 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_name" class="tbody-input" name="bname" placeholder="请输入书名" />
+                  </td>
+                  <td>
+                    <div id="book_name_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 作者 -->
+                    <label for="book_author">作者 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_author" class="tbody-input" name="weiter" placeholder="请输入作者" />
+                  </td>
+                  <td>
+                    <div id="book_author_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 出版社 -->
+                    <label for="book_press">出版社 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_press" class="tbody-input" name="press" placeholder="请输入出版社" />
+                  </td>
+                  <td>
+                    <div id="book_press_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 封面图 -->
+                    <label for="book_pic">封面图片 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <!-- 上传图片 -->
+                    <a href="javascript:void(0);" class="load-pic ">上传图片<input type="file" id="book_pic" name="pic" class="tbody-input" /></a><span class="showFileName"></span>
+                    <div class="fileerrorTip" id="uploadPreview"></div>
+                  </td>
+                  <td>
+                    <div></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 原价 -->
+                    <label for="book_original_price">原价 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_original_price" class="tbody-input" name="oprice" placeholder="0~999之间" />
+                  </td>
+                  <td>
+                    <div id="book_original_price_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 售价 -->
+                    <label for="book_new_price">售价 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_new_price" class="tbody-input" name="sprice" placeholder="0~999之间" />
+                  </td>
+                  <td>
+                    <div id="book_new_price_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 数量 -->
+                    <label for="book_number">数量 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <input type="text" id="book_number" class="tbody-input" name="num" value="1" />
+                  </td>
+                  <td>
+                    <div id="book_number_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 新旧程度 -->
+                    <label for="book_quality">新旧程度 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <select name="new" id="book_quality">
+                      <option value="11" selected="selected">-- 请选择 --</option>
+                      <option value="全新">全新</option>
+                      <option value="九成新">九成新</option>
+                      <option value="八成新">八成新</option>
+                      <option value="七成新">七成新</option>
+                      <option value="六成新及以下">六成新及以下</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div id="book_quality_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 书籍分类 -->
+                    <label for="book_type_id">书籍分类 <span class="required">*</span></label>
+                  </td>
+                  <td>
+                    <select name="classify" id="book_type_id">
+                      <option value="11" selected="selected">-- 请选择 --</option>
+                      <option value="1000">文学艺术</option>
+                      <option value="2000">人文社科</option>
+                      <option value="3000">经济管理</option>
+                      <option value="4000">生活休闲</option>
+                      <option value="5000">外语学习</option>
+                      <option value="6000">自然科学</option>
+                      <option value="7000">考试教育</option>
+                      <option value="8000">计算机</option>
+                      <option value="9000">医学</option>
+                    </select>
+                  </td>
+                  <td>
+                    <div id="book_type_id_tips"></div>
+                  </td>
+                </tr>
+                <tr class="book-other-detail">
+                  <td>
+                    <!-- 发布人说 -->
+                    <label for="book_comment">发布人说</label>
+                  </td>
+                   <td>
+                    <textarea maxlength="255" class="textinput" name="message" id="book_comment"></textarea>
+                  </td>
+                  <td>
+                    <div id="book_comment_tip"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="submit-button-box">
+              <input id="submit_button" class="btn btn-warning" name="" type="submit" value=" 发  布 " />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- 求购书籍结束 -->
+  </section>
+  <!-- 页面主体结束 -->
+  <!-- 页脚开始 -->
+  <footer id="gdin-footer">
+    <div class="container">
+      <div class="footer">
+        <table>
+          <tr>
+            <td><a href="javascript;">关于我们</a></td>
+            <td><a href="javascript;">用户协议</a></td>
+            <td><a href="javascript;">建议/反馈</a></td>
+            <td><a href="javascript;">一起合作</a></td>
+            <td><a href="javascript;">隐私保护</a></td>
+          </tr>
+        </table>
+        <p>Copyright &copy; 2016-2017 www.seaweedsweb.com All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <!-- 页脚结束 -->
+  <script src="/Application/Public/lib/jquery/jquery-3.1.1.min.js"></script>
+  <script src="/Application/Public/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/Application/Public/js/personalZone.js"></script>
+  <script type="text/javascript" src="/Application/Public/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/Application/Public/js/ajax_personal.js"></script>
+</body>
+
+</html>

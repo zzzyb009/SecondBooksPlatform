@@ -1,0 +1,462 @@
+/* 初始化样式 */
+
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 14px;
+  font-family: "Microsoft Yahei", sans-serif;
+  color: #000;
+  /* 背景颜色图案 */
+  /* background-color: #C9B39B; */
+  background-image: radial-gradient(circle at 100% 150%, #C9B39B 24%, white 25%, white 28%, #C9B39B 29%, #C9B39B 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, #C9B39B 24%, white 25%, white 28%, #C9B39B 29%, #C9B39B 36%, white 36%, white 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, white 10%, #C9B39B 11%, #C9B39B 23%, white 24%, white 30%, #C9B39B 31%, #C9B39B 43%, white 44%, white 50%, #C9B39B 51%, #C9B39B 63%, white 64%, white 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, white 5%, #C9B39B 6%, #C9B39B 15%, white 16%, white 20%, #C9B39B 21%, #C9B39B 30%, white 31%, white 35%, #C9B39B 36%, #C9B39B 45%, white 46%, white 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, white 5%, #C9B39B 6%, #C9B39B 15%, white 16%, white 20%, #C9B39B 21%, #C9B39B 30%, white 31%, white 35%, #C9B39B 36%, #C9B39B 45%, white 46%, white 49%, transparent 50%, transparent);
+  background-size: 100px 50px;
+}
+ul, ol {
+  list-style: none;
+}
+
+/* 让input 的type为number的时候隐藏上下箭头 */
+
+
+/* chrome下 */
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0;
+}
+
+/* firefox下 */
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* input, textarea {
+  border: none;
+  /* 清除轮廓线 */
+
+
+/*  outline: none;
+  resize: none; */
+
+
+/*清楚浏览器默认的样式*/
+
+
+/* -webkit-appearance: none; */
+
+
+/* } */
+
+a {
+  text-decoration: none;
+  color: #555;
+}
+a:hover {
+  text-decoration: none;
+  color: #f60;
+}
+
+/* 清除浮动 */
+
+.clearfix::before, .clearfix::after {
+  content: '';
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}
+[class^="icon-"] {
+  background: url('../images/sprites.png') no-repeat;
+  background-size: 200px 200px;
+}
+
+/* 字体图标 */
+
+@font-face {
+  font-family: 'book';
+  src: url('../fonts/book.ttf') format('truetype'), url('../fonts/book.woff') format('woff'), url('../fonts/book.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-book"], [class*=" icon-book"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'book' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+  font-family: 'scroll';
+  src: url('../fonts/scroll.ttf') format('truetype'), url('../fonts/scroll.woff') format('woff'), url('../fonts/scroll.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-scroll"], [class*=" icon-scroll"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'scroll' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 头部 */
+
+#gdin-header {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  padding-top: 10px;
+}
+#gdin-header > .container {
+  /* height: 29px; */
+  /* line-height: 29px; */
+}
+#gdin-header > .container > .pull-left {
+  color: #444;
+}
+#gdin-header > .container > .pull-left .icon-book {
+  width: 12px;
+  height: 12px;
+  padding-right: 10px;
+}
+#gdin-header > .container > .pull-left .icon-book::before {
+  content: '\e900';
+  font-size: 18px;
+}
+#gdin-header > .container > .pull-right .login {
+  color: #e92322;
+}
+
+/* banner部分 */
+
+#gdin-banner {
+  background: url('../images/topbg.jpg') repeat-x;
+}
+#gdin-banner > .container {}
+#gdin-banner > .container > .logo {
+  width: 386px;
+  height: 84px;
+}
+#gdin-banner > .container > .logo img {
+  display: block;
+  width: 386px;
+  height: 84px;
+  /* float: left; */
+}
+#gdin-banner > .container > .search {
+  width: 400px;
+  height: 84px;
+  padding-top: 20px;
+  margin-left: 40px;
+}
+#gdin-banner > .container > .search .input-group {}
+#gdin-banner > .container > .search .search-hot {
+  padding-top: 4px;
+}
+#gdin-banner > .container > .logo2 {
+  width: 200px;
+  height: 84px;
+  padding-left: 80px;
+}
+#gdin-banner > .container > .logo2 img {
+  display: block;
+}
+
+/* 导航栏部分 */
+
+#gdin-nav {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0;
+  z-index: 1002;
+}
+
+/* 分类盒子 */
+
+#gdin-nav > .container > .menu-box {
+  float: left;
+}
+#gdin-nav > .container > .menu-box > .menu {
+  /*  padding: 0 20px; */
+  text-align: center;
+  /* border-left: 1px solid rgb(162, 191, 73); */
+  border-left: 1px solid #461#5F1B1A;
+  /* background-color: rgb(162, 191, 20); */
+  background-color: #5F1B1A;
+}
+#gdin-nav > .container > .menu-box > .menu a {
+  width: 182px;
+  height: 50px;
+  line-height: 50px;
+  display: block;
+  color: #eee;
+}
+#gdin-nav > .container > .menu-box > .menu a:hover {
+  color: #555;
+}
+#gdin-nav > .container > .menu-box > .menu span {
+  padding-left: 20px;
+}
+
+/* 导航盒子 */
+
+#gdin-nav > .container > .navbar-collapse > .nav {
+  /* padding-left: 10px; */
+}
+
+/* 侧边栏区域 */
+
+#gdin-wrapper {
+  /* float: left; */
+}
+#gdin-wrapper > .container > .menu-list {
+  position: relative;
+}
+#gdin-wrapper > .container > .menu-list > ul {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 182px;
+  border: 1px solid #ddd;
+  border-top: 0;
+  z-index: 1001;
+}
+#gdin-wrapper > .container > .menu-list > ul >li {
+  color: #666;
+  padding: 0 10px 2px 20px;
+  border-bottom: 1px dashed #ddd;
+  display: block;
+  float: left;
+  position: relative;
+  background-color: #fff;
+}
+#gdin-wrapper > .container > .menu-list > ul > li.active {
+  background: rgba(95, 27, 26, .8);
+  color: #eee;
+}
+#gdin-wrapper > .container > .menu-list > ul > li.active > .menu-all a {
+  color: #eee;
+}
+#gdin-wrapper > .container > .menu-list > ul > li h2 {
+  height: 20px;
+  line-height: 20px;
+  font-size: 16px;
+  padding-left: 8px;
+}
+#gdin-wrapper > .container > .menu-list > ul > li h2 span {
+  position: absolute;
+  right: 13px;
+  top: 20px;
+  font-size: 18px;
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .menu-all a {
+  color: #666;
+  margin: 0 3px;
+  display: block;
+  float: left;
+  height: 20px;
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .menu-all a:hover {
+  box-shadow: 0 0 14px #fff;
+}
+
+/* 分类对应的子盒子 */
+
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu {
+  width: 728px;
+  background-color: #fff;
+  position: absolute;
+  left: 180px;
+  top: 0;
+  display: none;
+  _zoom: 1;
+  z-index: 100;
+  padding: 10px;
+  border: 2px solid rgba(95, 27, 26, .8);
+}
+#gdin-wrapper > .container > .menu-list > ul > li:first-of-type > .secmenu {
+  width: 728px;
+  background-color: #fff;
+  position: absolute;
+  left: 180px;
+  top: 20px;
+  display: none;
+  _zoom: 1;
+  z-index: 100;
+  padding: 10px;
+  border: 2px solid rgba(95, 27, 26, .8);
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu ul {}
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu ul li {
+  border-bottom: 1px dotted #eaeaea;
+  clear: both;
+  display: block;
+  line-height: 26px;
+  overflow: hidden;
+  padding: 5px ;
+  _zoom: 1;
+  margin: 0;
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu ul li h3 {
+  width: 80px;
+  font-size: 16px;
+  display: inline-block;
+  color: #000;
+  float: left;
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu ul li .list-box {
+  width: 620px;
+  float: left;
+  padding-left: 40px;
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu ul li .list-box a {
+  padding: 0 8px 0 2px;
+  display: inline-block;
+  color: #696969;
+}
+#gdin-wrapper > .container > .menu-list > ul > li > .secmenu ul li .list-box a:hover {
+  color: #f40;
+}
+
+/* 登录模态框 设置模态框弹出位置 */
+
+#login_form {
+  top: 88px;
+}
+
+/* 页脚部分 */
+
+#gdin-footer {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  background-image: url('../images/background1.jpg');
+  background-repeat: repeat-x;
+  color: darkslategray;
+  padding-top: 10px;
+  font-size: 12px;
+}
+#gdin-footer .footer {}
+#gdin-footer .footer p {
+  margin: 0;
+}
+#gdin-footer .footer table {
+  margin: 0 auto;
+}
+#gdin-footer .footer table tr td {
+  height: 20px;
+  width: 75px;
+}
+#gdin-footer .footer table a {
+  width: 100%;
+  display: block;
+  color: darkslategray;
+  line-height: 20px;
+  border-radius: 5px;
+}
+#gdin-footer .footer table a:hover {
+  transition: all 0.3s ease-in-out;
+  color: white;
+  font-size: 14px;
+  background: gray;
+}
+
+/* 自定义bootstrap */
+
+.navbar-liubin {
+  background-color: rgba(95, 27, 26, 0.8);
+  border-color: #5F1B1A;
+  top: 0;
+  width: 100%;
+}
+.navbar-liubin .navbar-brand {
+  color: #777;
+}
+.navbar-liubin .navbar-brand:hover, .navbar-liubin .navbar-brand:focus {
+  color: #5e5e5e;
+  background-color: transparent;
+}
+.navbar-liubin .navbar-text {
+  color: #777;
+}
+.navbar-liubin .navbar-nav > li > a {
+  color: #eee;
+}
+.navbar-liubin .navbar-nav > li > a:hover, .navbar-liubin .navbar-nav > li > a:focus {
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  font-size: 20px;
+}
+.navbar-liubin .navbar-nav > .active > a, .navbar-liubin .navbar-nav > .active > a:hover, .navbar-liubin .navbar-nav > .active > a:focus {
+  color: #eee;
+  background-color: rgba(95, 27, 26, 1);
+}
+.navbar-liubin .navbar-nav > .disabled > a, .navbar-liubin .navbar-nav > .disabled > a:hover, .navbar-liubin .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+.navbar-liubin .navbar-toggle {
+  border-color: #ddd;
+}
+.navbar-liubin .navbar-toggle:hover, .navbar-liubin .navbar-toggle:focus {
+  background-color: #ddd;
+}
+.navbar-liubin .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.navbar-liubin .navbar-collapse, .navbar-liubin .navbar-form {
+  border-color: #e7e7e7;
+}
+.navbar-liubin .navbar-nav > .open > a, .navbar-liubin .navbar-nav > .open > a:hover, .navbar-liubin .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+@media (max-width: 767px) {
+  .navbar-liubin .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+  .navbar-liubin .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-liubin .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+    background-color: transparent;
+  }
+  .navbar-liubin .navbar-nav .open .dropdown-menu > .active > a, .navbar-liubin .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-liubin .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+  .navbar-liubin .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-liubin .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-liubin .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+}
+.navbar-liubin .navbar-link {
+  color: #777;
+}
+.navbar-liubin .navbar-link:hover {
+  color: #333;
+}
+.navbar-liubin .btn-link {
+  color: #777;
+}
+.navbar-liubin .btn-link:hover, .navbar-liubin .btn-link:focus {
+  color: #333;
+}
+.navbar-liubin .btn-link[disabled]:hover, fieldset[disabled] .navbar-liubin .btn-link:hover, .navbar-liubin .btn-link[disabled]:focus, fieldset[disabled] .navbar-liubin .btn-link:focus {
+  color: #ccc;
+}

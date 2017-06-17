@@ -1,0 +1,411 @@
+/*
+* @Author: bin
+* @Date:   2017-04-04 20:46:32
+* @Last Modified by:   bin
+* @Last Modified time: 2017-04-05 16:38:51
+*/
+
+body, html {
+  height: 100%;
+  font-family: "宋体";
+  /* background-color: #fff; */
+  background-image: none;
+}
+/* 固定在底部 */
+
+.fixBottom {
+  position: fixed;
+  bottom: 0;
+}
+/* 侧边栏样式 */
+
+#sidebar {
+  float: left;
+  width: 16%;
+  margin-top: 2%;
+  margin-left: 8.2%;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+#sidebar ul {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+#sidebar ul li {
+  letter-spacing: 0;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e5e5e5;
+  transition: all .25s ease;
+}
+#sidebar ul li:first-child {
+  border-top: 1px solid #e5e5e5;
+}
+#sidebar ul li:hover {
+  letter-spacing: 12px;
+  background-color: #ffc800;
+  transition: all .25s ease;
+}
+#sidebar ul li.active {
+  box-shadow: 0 0 20px #f40;
+  background-color: #f40;
+  color: #fff;
+}
+
+/* 主体样式 */
+
+#center {
+  margin-left: 26%;
+}
+
+/* 我的出售 */
+
+#mySell {
+  margin-top: 2%;
+  /* display: none; */
+  /* margin-left: 20%; */
+  width: 100%;
+}
+#mySell .mySellBox {
+  padding: 2% 0;
+  border: 2px dashed #000;
+  border-radius: 14px;
+  box-shadow: 0 0 40px #000;
+  overflow: hidden;
+}
+#mySell .mySellBox ul {
+  width: 100%;
+}
+#mySell .mySellBox ul li {
+  margin-bottom: 2%;
+}
+#mySell .mySellBox .picBox {
+  margin-left: 2%;
+  float: left;
+  width: 200px;
+  height: 240px;
+}
+#mySell .mySellBox .picBox img {
+  width: 200px;
+  height: 240px;
+}
+#mySell .mySellBox .bookDetails {
+  float: left;
+  padding-left: 2%;
+}
+
+/* 我的求购 */
+
+#myBuy {
+  display: none;
+  /* margin-left: 20%; */
+  margin-top: 2%;
+  width: 100%;
+}
+#myBuy .myBuyBox {
+  padding: 2% 0;
+  border: 2px dashed #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 40px #000;
+}
+#myBuy .myBuyBox ul {
+  width: 100%;
+}
+#myBuy .myBuyBox ul li {
+  margin-bottom: 2%;
+}
+#myBuy .myBuyBox .picBox {
+  margin-left: 2%;
+  float: left;
+  width: 200px;
+  height: 240px;
+}
+#myBuy .myBuyBox .picBox img {
+  width: 200px;
+  height: 240px;
+}
+#myBuy .myBuyBox .bookDetails {
+  float: left;
+  padding-left: 2%;
+}
+/* 我的收藏 */
+#myCollection {
+  display: none;
+  /* margin-left: 20%; */
+  margin-top: 2%;
+  width: 100%;
+}
+#myCollection .myCollectionBox {
+  padding: 2% 0;
+  border: 2px dashed #000;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 40px #000;
+}
+#myCollection .myCollectionBox ul {
+  width: 100%;
+}
+#myCollection .myCollectionBox ul li {
+  margin-bottom: 2%;
+}
+#myCollection .myCollectionBox .picBox {
+  margin-left: 2%;
+  float: left;
+  width: 200px;
+  height: 240px;
+}
+#myCollection .myCollectionBox .picBox img {
+  width: 200px;
+  height: 240px;
+}
+#myCollection .myCollectionBox .bookDetails {
+  float: left;
+  padding-left: 2%;
+}
+/* 修改密码模块 */
+
+#changePassword {
+  margin: 6% 0 10% 0;
+  width: 72%;
+  padding-top: 4%;
+  display: none;
+  border: 2px dashed #000;
+  border-radius: 14px;
+  box-shadow: 0 0 40px #000;
+  /* float: left; */
+}
+#changePassword ul {}
+#changePassword ul li {
+  margin-bottom: 20px;
+}
+#changePassword ul li label {
+  text-align: right;
+  width: 24%;
+  font-size: 20px;
+}
+#changePassword ul li input {
+  width: 30%;
+}
+#changePassword ul li .changePasswordSubmit {
+  width: 18%;
+  height: 12%;
+  margin-left: 32%;
+}
+
+/* 修改联系方式 */
+
+#changeContect {
+  margin: 6% 0 10% 0;
+  width: 72%;
+  padding-top: 4%;
+  display: none;
+  border: 2px dashed #000;
+  border-radius: 14px;
+  box-shadow: 0 0 40px #000;
+}
+#changeContect ul {}
+#changeContect ul li {
+  margin-bottom: 20px;
+}
+#changeContect ul li label {
+  text-align: right;
+  width: 24%;
+  font-size: 20px;
+}
+#changeContect ul li input {
+  width: 30%;
+}
+#changeContect ul li .changeContectSubmit {
+  width: 18%;
+  height: 12%;
+  margin-left: 32%;
+}
+
+/* 出售书籍
+求购书籍
+二者共用 */
+
+#gdin-sell-form, #gdin-buy-form {
+  overflow-x: hidden;
+  margin-top: 3%;
+  display: none;
+  border: 2px dashed #5091AF;
+  border-radius: 14px;
+  padding: 2%;
+}
+.container {}
+.container .form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5091AF;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid rgb(91, 176, 199);
+  background: #fff;
+}
+.container .sell-form-body {
+  background: #fff;
+}
+.container .sell-form-body form {
+  margin: 0;
+  padding: 0;
+}
+.container .sell-form-body form .sell-form-table {}
+.container .sell-form-body form .sell-form-table tr {
+  vertical-align: middle !important;
+  height: 46px;
+}
+.container .sell-form-body form .sell-form-table tr td {
+  height: 30px;
+  padding: 3px;
+}
+.container .sell-form-body form .sell-form-table tr td label {
+  float: left;
+  margin: 2px 5px 2px 0px;
+  color: rgb(91, 176, 199);
+  text-align: right;
+  letter-spacing: 2px;
+  width: 120px;
+  overflow: hidden;
+  font-size: 15px;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+}
+.container .sell-form-body form .sell-form-table tr td label span.required {
+  color: red;
+}
+.container .sell-form-body form .sell-form-table tr td .tbody-input {
+  height: 30px;
+  width: 240px;
+  margin: 0px 10px 0px 0px;
+  border: 1px solid #BDC7D8;
+  font-size: 15px;
+  line-height: 18px;
+  padding: 5px 4px;
+  vertical-align: middle;
+}
+.container .sell-form-body form .sell-form-table .form-tips {
+  height: 20px;
+  vertical-align: middle;
+}
+.container .sell-form-body form .sell-form-table .form-tips td {
+  height: 20px;
+  padding: 0 3px;
+}
+.container .sell-form-body form .sell-form-table tr td select {
+  height: 30px;
+  width: 240px;
+}
+.container .sell-form-body form .sell-form-table tr td textarea {
+  height: 80px;
+  width: 240px;
+  resize: none;
+}
+.container .sell-form-body form .submit-button-box {
+  margin-left: 134px;
+}
+.container .sell-form-body form .submit-button-box input {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 16px;
+}
+
+/* 上传书籍图片 */
+
+.container .sell-form-body form .sell-form-table .load-pic {
+  position: relative;
+  display: inline-block;
+  background: #ccc;
+  border: 1px solid #333;
+  padding: 4px 20px;
+  overflow: hidden;
+  text-decoration: none;
+  text-indent: 0;
+  line-height: 20px;
+  border-radius: 20px;
+  color: #333;
+  font-size: 13px;
+}
+.container .sell-form-body form .sell-form-table .showFileName, .container .sell-form-body form .sell-form-table .fileerrorTip {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.container .sell-form-body form .sell-form-table .load-pic:hover {
+  background-color: #1670ff;
+  color: #fff;
+  box-shadow: 4px 4px 5px #333;
+  transition: all .3s ease-in-out;
+}
+#book_pic {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+#uploadPreview {
+  display: none;
+  width: 168px;
+  height: 168px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  border: 4px solid #fff;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  /* display: inline-block; */
+}
+
+/* 验证错误时弹出的盒子 */
+
+.container .sell-form-body form .sell-form-table tr td .onError {
+  width: 158px;
+  border: 1px solid #e92322;
+  background-color: gold;
+  height: 26px;
+  line-height: 26px;
+  position: relative;
+  margin-left: 30px;
+  /* color: #555; */
+  padding-left: 10px;
+  box-shadow: 1px 1px 1px #e92322;
+  /* display: none; */
+}
+.container .sell-form-body form .sell-form-table tr td .onError::before {
+  content: '';
+  background-image: url('../images/error_01.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: block;
+  border-radius: 10px;
+  left: -34px;
+  top: 0;
+}
+.container .sell-form-body form .sell-form-table tr td .onError::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 12px;
+  border-color: transparent;
+  border-style: solid;
+  border-right-color: gold;
+  border-radius: 30px;
+  position: absolute;
+  left: -20px;
+  top: 0px;
+}
+.onCorrect {
+  display: inline-block;
+  height: 34px;
+  background: url('../images/success.gif') no-repeat 0 11px;
+  padding-left: 15px;
+  vertical-align: middle;
+  padding-right: 5px;
+  width: 180px !important;
+}

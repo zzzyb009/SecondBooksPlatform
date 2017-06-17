@@ -1,0 +1,51 @@
+#gdin-wrapper > .container > .menu-list > ul {
+  display: none;
+}
+
+/* 中间内容部分 */
+
+#gdin-cassify .container {}
+#gdin-cassify .container h1 {
+  margin: 0;
+  text-align: center;
+  background-color: #f0f0f0;
+  display: block;
+  padding-bottom: 10px;
+  border: 1px solid #5f1b1a;
+}
+#gdin-cassify .container .cassify-all {
+  background-color: #fff;
+  /* margin-bottom: 20px; */
+  overflow: hidden;
+}
+#gdin-cassify .container .cassify-all ul {
+  background-color: #fff;
+  overflow: hidden;
+}
+#gdin-cassify .container .cassify-all ul li {
+  line-height: 30px;
+  font-size: 14px;
+  border-bottom: 1px dashed #ddd;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+#gdin-cassify .container .cassify-all ul li .cassify-left {
+  float: left;
+  width: 150px;
+  color: #e92322;
+  font-weight: bold;
+  text-align: right;
+}
+#gdin-cassify .container .cassify-all ul li .cassify-left a {
+  color: #e92322;
+}
+#gdin-cassify .container .cassify-all ul li .cassify-right {
+  float: left;
+  width: 890px;
+  color: #888;
+  padding-left: 40px;
+}
+#gdin-cassify .container .cassify-all ul li .cassify-right a {
+  float: left;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../css/demo.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="form">
+    <div class="page_title">
+      添加出售 </div>
+    <form id="sell-book-form" action="/sell/create" method="post">
+      <div style="display:none">
+        <input type="hidden" value="68990f9647a43b0eed63470b0d4e46913e18a328" name="YII_CSRF_TOKEN" />
+      </div>
+      <input class="book_pic_path" name="SellBook[pic_path]" id="SellBook_pic_path" type="hidden" />
+      <div class="edit_book_form">
+        <table class="ubm_input">
+          <tbody>
+            <tr>
+              <td>
+                <label for="SellBook_isbn" class="required">ISBN号 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="20" class="ubm_textinput" name="SellBook[isbn]" id="SellBook_isbn" type="text" />
+              </td>
+              <td>
+                <div id="SellBook_isbnTip"></div>
+              </td>
+            </tr>
+            <tr class="tip_tr">
+              <td></td>
+              <td><a target="_blank" href="http://www.jiushujie.com/site/help#isbn">什么是ISBN?</a></td>
+              <td></td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_title" class="required">书名 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="60" class="ubm_textinput" name="SellBook[title]" id="SellBook_title" type="text" />
+              </td>
+              <td>
+                <div id="SellBook_titleTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_author" class="required">作者 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="45" class="ubm_textinput" name="SellBook[author]" id="SellBook_author" type="text" />
+              </td>
+              <td>
+                <div id="SellBook_authorTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_press" class="required">出版社 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="45" class="ubm_textinput" name="SellBook[press]" id="SellBook_press" type="text" />
+              </td>
+              <td>
+                <div id="SellBook_pressTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail" style="vertical-align:middle;">
+              <td>
+                <label for="SellBook_pic_path">封面图片</label>
+              </td>
+              <td>
+                <div id="selected_book_img_div">
+                </div>
+                <div id="book_select_link">
+                  <a href="javascript:openBookPicDlg();">选取图片</a>&nbsp;&nbsp;
+                  <a id="delete_book_img_link" style="display:none;" href="javascript:deleteBookImg();">删除图片</a>
+                </div>
+              </td>
+              <td></td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_original_price" class="required">原价 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="7" class="ubm_textinput" name="SellBook[original_price]" id="SellBook_original_price" type="text" />
+              </td>
+              <td>
+                <div id="SellBook_original_priceTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_now_price" class="required">售价 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="7" class="ubm_textinput" name="SellBook[now_price]" id="SellBook_now_price" type="text" />
+              </td>
+              <td>
+                <div id="SellBook_now_priceTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_count" class="required">数量 <span class="required">*</span></label>
+              </td>
+              <td>
+                <input maxlength="7" class="ubm_textinput" name="SellBook[count]" id="SellBook_count" type="text" value="1" />
+              </td>
+              <td>
+                <div id="SellBook_countTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_quality" class="required">新旧程度 <span class="required">*</span></label>
+              </td>
+              <td>
+                <select class="ubm_textinput" name="SellBook[quality]" id="SellBook_quality">
+                  <option value="" selected="selected">-- 请选择 --</option>
+                  <option value="10">全新</option>
+                  <option value="9">九成新</option>
+                  <option value="8">八成新</option>
+                  <option value="7">七成新</option>
+                  <option value="6">六成新及以下</option>
+                </select>
+              </td>
+              <td>
+                <div id="SellBook_qualityTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail">
+              <td>
+                <label for="SellBook_book_type_id" class="required">书籍分类 <span class="required">*</span></label>
+              </td>
+              <td>
+                <select class="ubm_textinput" name="SellBook[book_type_id]" id="SellBook_book_type_id">
+                  <option value="" selected="selected">-- 请选择 --</option>
+                  <option value="1000">文学艺术</option>
+                  <option value="2000">人文社科</option>
+                  <option value="3000">经济管理</option>
+                  <option value="4000">生活休闲</option>
+                  <option value="5000">外语学习</option>
+                  <option value="6000">自然科学</option>
+                  <option value="7000">考试教育</option>
+                  <option value="8000">计算机</option>
+                  <option value="9000">医学</option>
+                </select>
+              </td>
+              <td>
+                <div id="SellBook_book_type_idTip"></div>
+              </td>
+            </tr>
+            <tr class="book_other_detail" style="vertical-align:top;">
+              <td>
+                <label for="SellBook_comment">发布人说</label>
+              </td>
+              <td>
+                <textarea maxlength="255" class="ubm_textinput" name="SellBook[comment]" id="SellBook_comment"></textarea>
+              </td>
+              <td>
+                <div id="SellBook_commentTip"></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="margin_left_134">
+        <input id="submit_button" class="button" onclick="submitForm(&quot;sell-book-form&quot;,&quot;submit_button&quot;);" name="yt0" type="button" value=" 发  布 " />&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="/import/batchCreate">批量发布</a>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="/import/batchUpdate">批量更新</a></div>
+    </form>
+  </div>
+</body>
+
+</html>
+<SPAN class=tag><<SPAN class=title>div</SPAN>></SPAN>
+<SPAN class=tag><<SPAN class=title>a</SPAN>
+<SPAN class=attribute>href</SPAN>=
+<SPAN class=value>"###"</SPAN>></SPAN>添加图片
+<SPAN class=tag></<SPAN class=title>a</SPAN>></SPAN>
+<SPAN class=tag><<SPAN class=title>input</SPAN>
+<SPAN class=attribute>type</SPAN>=
+<SPAN class=value>"file"</SPAN>
+<SPAN class=attribute>name</SPAN>=
+<SPAN class=value>"image"</SPAN>
+<SPAN class=attribute>class</SPAN>=
+<SPAN class=value>"hidden"</SPAN>
+<SPAN class=attribute>value</SPAN>=
+<SPAN class=value>""</SPAN> /></SPAN>
+<SPAN class=tag></<SPAN class=title>div</SPAN>></SPAN>

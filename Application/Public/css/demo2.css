@@ -1,0 +1,174 @@
+.gdin-sell-form {}
+.gdin-sell-form .container {}
+.gdin-sell-form .container .form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5091AF;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom: 1px solid rgb(91, 176, 199);
+  background: #fff;
+}
+.gdin-sell-form .container .sell-form-body {
+  background: #fff;
+}
+.gdin-sell-form .container .sell-form-body form {
+  margin: 0;
+  padding: 0;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table {}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr {
+  vertical-align: middle !important;
+  height: 46px;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td {
+  height: 30px;
+  padding: 3px;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td label {
+  float: left;
+  margin: 2px 5px 2px 0px;
+  color: rgb(91, 176, 199);
+  text-align: right;
+  letter-spacing: 2px;
+  width: 120px;
+  overflow: hidden;
+  font-size: 15px;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td label span.required {
+  color: red;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td .tbody-input {
+  height: 30px;
+  width: 240px;
+  margin: 0px 10px 0px 0px;
+  border: 1px solid #BDC7D8;
+  font-size: 15px;
+  line-height: 18px;
+  padding: 5px 4px;
+  vertical-align: middle;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table .form-tips {
+  height: 20px;
+  vertical-align: middle;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table .form-tips td {
+  height: 20px;
+  padding: 0 3px;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td select {
+  height: 30px;
+  width: 240px;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td textarea {
+  height: 80px;
+  width: 240px;
+  resize: none;
+}
+.gdin-sell-form .container .sell-form-body form .submit-button-box {
+  margin-left: 134px;
+}
+.gdin-sell-form .container .sell-form-body form .submit-button-box input {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 16px;
+}
+
+/* 上传书籍图片 */
+
+.gdin-sell-form .container .sell-form-body form .sell-form-table .load-pic {
+  position: relative;
+  display: inline-block;
+  background: #ccc;
+  border: 1px solid #333;
+  padding: 4px 20px;
+  overflow: hidden;
+  text-decoration: none;
+  text-indent: 0;
+  line-height: 20px;
+  border-radius: 20px;
+  color: #333;
+  font-size: 13px;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table .showFileName, .gdin-sell-form .container .sell-form-body form .sell-form-table .fileerrorTip {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table .load-pic:hover {
+  background-color: #1670ff;
+  color: #fff;
+  box-shadow: 4px 4px 5px #333;
+  transition: all .3s ease-in-out;
+}
+#book_pic {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+#uploadPreview {
+  display: none;
+  width: 168px;
+  height: 168px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  border: 4px solid #fff;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  /* display: inline-block; */
+}
+
+/* 验证错误时弹出的盒子 */
+
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td .onError {
+  width: 158px;
+  border: 1px solid #e92322;
+  background-color: gold;
+  height: 26px;
+  line-height: 26px;
+  position: relative;
+  margin-left: 30px;
+  /* color: #555; */
+  padding-left: 10px;
+  box-shadow: 1px 1px 1px #e92322;
+  /* display: none; */
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td .onError::before {
+  content: '';
+  background-image: url('../images/error_01.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: block;
+  border-radius: 10px;
+  left: -34px;
+  top: 0;
+}
+.gdin-sell-form .container .sell-form-body form .sell-form-table tr td .onError::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 12px;
+  border-color: transparent;
+  border-style: solid;
+  border-right-color: gold;
+  border-radius: 30px;
+  position: absolute;
+  left: -20px;
+  top: 0px;
+}
+.onCorrect {
+  display: inline-block;
+  height: 34px;
+  background: url('../images/success.gif') no-repeat 0 11px;
+  padding-left: 15px;
+  vertical-align: middle;
+  padding-right: 5px;
+  width: 180px !important;
+}

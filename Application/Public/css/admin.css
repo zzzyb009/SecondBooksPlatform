@@ -1,0 +1,39 @@
+﻿body, html {
+  background-image: none;
+}
+.active {
+  box-shadow: 0 0 40px #53bcff;
+  text-shadow: 6px 4px 3px #000;
+}
+.noti-div h4 {
+  padding: 10px;
+}
+.noti-div i {
+  display: block;
+  padding: 5px;
+}
+.noti-div a, .noti-div a:hover {
+  text-decoration: none;
+}
+section {
+  padding: 50px 0px 0px 0px;
+}
+.img-max-width {
+  max-width: 270px;
+}
+
+/* =============================================================
+   主体部分
+ ============================================================ */
+
+#main h3 {
+  color: #000;
+  padding: 0px 0px 10px 0px;
+  line-height: 40px;
+}
+#main .hr-div hr {
+  padding-bottom: 30px;
+}
+.logout-link {
+  margin-bottom: 40px!important;
+}

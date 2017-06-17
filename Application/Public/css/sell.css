@@ -1,0 +1,107 @@
+/* 侧边栏修改 */
+
+#gdin-wrapper > .container > .menu-list > ul {
+  display: none;
+}
+#gdin-wrapper > .container > .menu-list > ul > li.active {
+  background: rgba(95, 27, 26, 1);
+  color: #eee;
+}
+#gdin-sell {}
+#gdin-sell .container {}
+
+/* 主模块头部区域 */
+
+#gdin-sell .container .sell-title {
+  height: 79px;
+  background-color: #fff;
+}
+#gdin-sell .container .sell-title .title-left {
+  line-height: 69px;
+}
+#gdin-sell .container .sell-title .title-left p {
+  margin: 0;
+  font-size: 24px;
+  float: left;
+  padding-left: 10px;
+}
+#gdin-sell .container .sell-title .title-left ul {
+  float: left;
+}
+#gdin-sell .container .sell-title .title-left ul li {
+  float: left;
+  font-size: 16px;
+  padding-left: 14px;
+}
+#gdin-sell .container .sell-title .title-right {
+  padding-right: 10px;
+}
+
+/* 主模块主体区域 */
+
+#gdin-sell .container .sell-body {
+  background-color: #fff;
+  padding: 10px;
+  overflow: hidden;
+  word-break: break-all;
+  word-wrap: break-word;
+  border-bottom: 1px dotted #777;
+  float: left;
+}
+#gdin-sell .container .sell-body .pic {
+  margin-right: 10px;
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  border: 1px solid #777;
+  text-align: center;
+  margin-bottom: 2px;
+}
+#gdin-sell .container .sell-body .book-pic img {
+  height: 160px;
+  width: 120px;
+}
+#gdin-sell .container .sell-body .book-info {
+  overflow: hidden;
+  margin-left: 10px;
+  width: 420px;
+}
+#gdin-sell .container .sell-body .book-info .info-title {
+  border-bottom: 1px dashed #bbb;
+  font-size: 14px;
+  padding-left: 8px;
+  padding-bottom: 2px;
+  font-weight: bold;
+}
+#gdin-sell .container .sell-body .book-info .info-detail {
+  border-bottom: 1px dashed #bbb;
+  padding: 10px;
+}
+#gdin-sell .container .sell-body .book-info .info-detail p {
+  margin: 0;
+}
+#gdin-sell .container .sell-body .book-info .info-detail .new-price span {
+  color: #e92322;
+}
+#gdin-sell .container .sell-body .book-info .info-detail .original-price span {
+  text-decoration: line-through;
+  color: #888;
+}
+#gdin-sell .container .sell-body .book-info .info-bottom .btn {
+  background: #ec971f;
+  color: #fff;
+  margin-top: 10px;
+}
+#gdin-sell .container .sell-body .book-info .info-bottom .btn:hover {
+  background: #ff8711;
+}
+
+/* 主模块底部分页导航 */
+
+#gdin-sell .container .sell-footer-pagination {
+  margin: 0 auto;
+  background: #FFF;
+}
+#gdin-sell .container .sell-footer-pagination .pagination {
+  margin: 0 auto;
+}
